@@ -14,5 +14,6 @@ Connections to Lolin (NodeMCU V3):
     DIO --> D6
 4. LED (1pc from ws2812 strip)
     DATA --> D3
+    
 Here is the link for MZH19 library
 https://github.com/bertrik/mhz19/tree/master/co2meter
