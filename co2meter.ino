@@ -176,6 +176,11 @@ void setup()
       delay(DELAY);
     }
   }
+  bme.setSampling(Adafruit_BME280::MODE_FORCED,
+                  Adafruit_BME280::SAMPLING_X1, // temperature
+                  Adafruit_BME280::SAMPLING_X1, // pressure
+                  Adafruit_BME280::SAMPLING_X1, // humidity
+                  Adafruit_BME280::FILTER_OFF);
 
 }
 
@@ -186,6 +191,7 @@ void loop()
   int temp;
   unsigned long m = millis();
   if ((m - last_sent) >= INTERVAL) {
+    bme.takeForcedMeasurement();
     tempC = bme.readTemperature();
     int humidity = bme.readHumidity();
     int pressure = bme.readPressure() / 100;
